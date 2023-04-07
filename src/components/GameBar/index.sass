@@ -1,0 +1,31 @@
+@mixin flex()
+  display: flex
+  align-items: center
+  justify-content: center
+
+.games-container
+  margin-top: 2em !important
+  margin: 0 5%
+  display: flex
+  flex-direction: column
+  gap: 20px
+
+  h1
+    margin-left: 12%
+    font-size: 1.5rem
+    font-weight: bolder
+
+  .cards
+    @include flex()
+    gap: 20px
+
+    & > .card-container
+      @include flex()
+      justify-content: start
+      gap: 20px
+      width: 70vw
+      overflow-x: hidden
+
+    i
+      filter: opacity(0.5)
+      font-size: 2rem

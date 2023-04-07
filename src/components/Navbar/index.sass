@@ -1,0 +1,56 @@
+@mixin displayflexCenter()
+  display: flex
+  justify-content: center
+  align-items: center
+
+.navbar-container
+  background-color: var(--navbar-color)
+  width: 100vw
+
+
+  ul
+    @include displayflexCenter()
+    list-style: none
+    gap: 20px
+    padding: 20px 0
+    padding-right: 8rem
+
+    li
+      @include displayflexCenter()
+      font-size: 1rem !important
+      cursor: pointer
+      transition: all 1s ease-in-out
+
+      & > svg
+        transition: all .5s ease-in-out
+      
+      &:not(.auth-li):hover svg
+        transform: translateY(-5px)
+
+      &.auth-li
+        position: absolute
+        right: 5rem
+        padding: 5px 10px
+        h1, a
+          font-size: 1.5rem !important
+        &:hover
+          a
+            color: var(--purple-white)
+
+
+.logo
+  min-width: 8rem
+  width: 8rem
+
+.auth-li
+  .auth-button
+    @include displayflexCenter()
+    color: var(--text-white)
+    gap: 15px
+
+aside 
+  background: var(--purple)
+  transform: translateX(50%)
+  border-radius: 12px
+  width: 50%
+  height: 19px

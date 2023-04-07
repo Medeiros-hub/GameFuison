@@ -1,0 +1,61 @@
+:root
+  --bg-color: #000
+  --text-white: #fff
+  --navbar-color: #202023E5
+  --purple: #6C23AF
+  --purple-white: #7b569e
+  --gray: #828282
+
+
+@font-face 
+  font-family: 'InterFont'
+  src: url('../assets/fonts/Inter-VariableFont_slnt,wght.ttf')
+
+
+.pointer 
+  cursor: pointer
+
+.rainbow
+  font-family: 'Inter', 'InterFont'
+  font-weight: 900
+  background: linear-gradient(89.96deg, #9572FC, #43E7AD, #E1D55D)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  width: fit-content
+
+* 
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body 
+  background-color: var(--bg-color)
+  background: url('../assets/Fundo.png') no-repeat fixed
+  background-size: cover
+  color: var(--text-white)
+  width: 100vw
+  height: 100vh
+  font-family: 'Inter', 'InterFont'
+
+button
+  cursor: pointer
+  background: none
+  outline: none
+  border: none
+
+a:link 
+  border: none
+  outline: none
+  text-decoration: none
+
+input 
+  appearance: none
+  background-color: transparent
+  border: none
+  font-family: inherit
+  font-size: inherit
+  margin: 0
+  outline: none
+  padding: 0
+  &::placeholder 
+    color: #999
