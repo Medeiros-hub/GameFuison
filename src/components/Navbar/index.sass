@@ -3,17 +3,26 @@
   justify-content: center
   align-items: center
 
+.hide 
+  display: none !important
+
 .navbar-container
   background-color: var(--navbar-color)
   width: 100vw
 
+  .menu-navbar.hide
+    display: none
 
   ul
     @include displayflexCenter()
+    justify-content: space-around
     list-style: none
     gap: 20px
     padding: 20px 0
-    padding-right: 8rem
+
+    @media screen and (min-width: 801px)
+      li.hide
+        display: flex !important    
 
     li
       @include displayflexCenter()
@@ -28,14 +37,70 @@
         transform: translateY(-5px)
 
       &.auth-li
-        position: absolute
-        right: 5rem
         padding: 5px 10px
         h1, a
-          font-size: 1.5rem !important
+          font-size: 1rem !important
         &:hover
           a
             color: var(--purple-white)
+
+
+@media screen and (max-width: 800px)
+  .navbar-container 
+    .navbar-menu
+      .menu-item
+        transition: all .3s ease-in-out
+
+    .navbar-menu.open
+      .menu-item
+        margin-top: 0 !important
+        &:nth-child(1)
+          transform: rotate(45deg) translateY(3px)
+        &:nth-child(2)
+          width: 0
+        &:nth-child(3)
+          transform: rotate(-45deg) translateY(-3px)
+
+    .navbar-menu.show
+      display: flex
+      flex-direction: column
+
+      .menu-item
+        background-color: var(--text-white)
+        height: 2px
+        width: 20px
+
+        $i: 1
+        @while $i < 3
+          &:nth-child(#{$i + 1})
+            margin-top: 5px
+          $i: $i + 1
+
+    ul
+      position: relative
+
+      li.show
+        position: absolute
+        padding: 10px
+        width: 100%
+        background-color: var(--navbar-color-solid)
+        left: 0
+        z-index: 1
+
+        $li_marginTop: 100px
+        &:nth-child(2)
+          top: $li_marginTop
+
+        &:nth-child(3)
+          top: $li_marginTop * 1.5
+
+        &:nth-child(5)
+          top: $li_marginTop * 2
+
+        &:nth-child(6)
+          top: $li_marginTop * 2.5
+
+
 
 
 .logo
@@ -54,3 +119,4 @@ aside
   border-radius: 12px
   width: 50%
   height: 19px
+

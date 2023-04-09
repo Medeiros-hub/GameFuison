@@ -9,19 +9,25 @@ interface GameBarProps {
 
 const GameBar: React.FC<GameBarProps> = ({ sectionTitle, children }) => {
   const [currentPosition, setCurrentPosition] = useState<number>(0);
-  const cardWidth = 280;
-  const maxPosition = (React.Children.count(children) - 3) * cardWidth;
+  const cardWidth = 200;
+  const maxPosition = (React.Children.count(children) - 1) * cardWidth;
   
   const toLeft = () => {
     currentPosition != 0
       ? setCurrentPosition(currentPosition - cardWidth)
       : 0;
+    
+    console.log(currentPosition, maxPosition);
+      
   };
 
   const toRight = () => {
     currentPosition != maxPosition
       ? setCurrentPosition(currentPosition + cardWidth)
       : 0;
+
+    console.log(currentPosition, maxPosition);
+
   };
 
   return (
