@@ -18,27 +18,27 @@ const Navbar: React.FC<NavbarProps> = ({}): JSX.Element => {
   return (
     <>
       <nav className="navbar-container">
+        <div 
+          className={`navbar-menu pointer show ${isMenuOpen ? "open" : "close"}`}
+          onClick={closeMenu}
+        >
+          <span className="menu-item"></span>
+          <span className="menu-item"></span>
+          <span className="menu-item"></span>
+        </div>
         <ul>
-          <div 
-            className={`navbar-menu pointer show ${isMenuOpen ? "open" : "close"}`}
-            onClick={closeMenu}
-          >
-            <span className="menu-item"></span>
-            <span className="menu-item"></span>
-            <span className="menu-item"></span>
-          </div>
           <NavbarItem name="Comunidade" classItem={isMenuOpen ? "show" : "hide"} />
           <NavbarItem name="Jogos" classItem={isMenuOpen ? "show" : "hide"} />
           <img src={logo} alt="Logo game fusion" className="logo" />
           <NavbarItem name="Serviços" classItem={isMenuOpen ? "show" : "hide"} />
           <NavbarItem name="Ajuda" classItem={isMenuOpen ? "show" : "hide"} />
-          <li className="auth-li">
-            <Link to="/auth" className="auth-button">
-              <BsFillPersonFill />
-              <h1>Login</h1>
-            </Link>
-          </li>
         </ul>
+        <div className="auth-container">
+          <Link to="/auth" className="auth-button"> 
+            <BsFillPersonFill />
+            <h1>Login</h1>
+          </Link>
+        </div>
       </nav>
       <aside></aside>
     </>

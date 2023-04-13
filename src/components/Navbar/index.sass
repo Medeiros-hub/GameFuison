@@ -7,9 +7,26 @@
   display: none !important
 
 .navbar-container
+  @include displayflexCenter()
+  justify-content: space-around
   background-color: var(--navbar-color)
   width: 100vw
 
+  .auth-container
+    padding: 5px 10px
+    transition: all 1s ease-in-out
+
+    .auth-button
+      @include displayflexCenter()
+      color: var(--text-white)
+      gap: 15px
+
+    h1, a
+      font-size: 1rem !important
+    &:hover
+      a
+        color: var(--purple-white)
+        
   .menu-navbar.hide
     display: none
 
@@ -36,13 +53,6 @@
       &:not(.auth-li):hover svg
         transform: translateY(-5px)
 
-      &.auth-li
-        padding: 5px 10px
-        h1, a
-          font-size: 1rem !important
-        &:hover
-          a
-            color: var(--purple-white)
 
 
 @media screen and (max-width: 800px)
@@ -62,8 +72,10 @@
           transform: rotate(-45deg) translateY(-3px)
 
     .navbar-menu.show
-      display: flex
+      @include displayflexCenter()
       flex-direction: column
+      height: 16px
+      width: fit-content
 
       .menu-item
         background-color: var(--text-white)
@@ -77,8 +89,6 @@
           $i: $i + 1
 
     ul
-      position: relative
-
       li.show
         position: absolute
         padding: 10px
@@ -88,16 +98,16 @@
         z-index: 1
 
         $li_marginTop: 100px
-        &:nth-child(2)
+        &:nth-child(1)
           top: $li_marginTop
 
-        &:nth-child(3)
+        &:nth-child(2)
           top: $li_marginTop * 1.5
 
-        &:nth-child(5)
+        &:nth-child(4)
           top: $li_marginTop * 2
 
-        &:nth-child(6)
+        &:nth-child(5)
           top: $li_marginTop * 2.5
 
 
@@ -106,12 +116,6 @@
 .logo
   min-width: 8rem
   width: 8rem
-
-.auth-li
-  .auth-button
-    @include displayflexCenter()
-    color: var(--text-white)
-    gap: 15px
 
 aside 
   background: var(--purple)
